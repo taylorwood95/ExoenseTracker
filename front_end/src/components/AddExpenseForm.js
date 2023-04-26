@@ -24,8 +24,13 @@ const AddExpenseForm = ({createExpense, expenses}) => {
         
     }
 
-    const expenseOptions = expenses.map((categoryItem, index) => {
-        return <option key={index} value={index}>{categoryItem.category}</option>
+    const categoryOptions = ["Entertainment","Bills","Eating Out",
+    "Transport",
+    "Rent","Mortgage","Groceries",
+    "Subscriptions","Other"];
+
+    const categories = categoryOptions.map((category, index) => {
+        return <option key={index} value={index}>{category}</option>
       
     })
 
@@ -48,7 +53,7 @@ const AddExpenseForm = ({createExpense, expenses}) => {
         <div>
             <select name="category" onChange={handleCategoryChange} defaultValue="Select Category">
                 <option defaultValue="Select Category"> category</option>
-                {expenseOptions}
+                {categories}
             </select>
         </div>
         <button type="submit">Add Expense</button>

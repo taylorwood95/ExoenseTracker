@@ -2,6 +2,7 @@ package com.expenseTracker.ExpenseTracker.models;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "expenses")
@@ -21,6 +22,10 @@ public class Expense {
     @Enumerated(value = EnumType.STRING)
     private CategoryType category;
 
+    @Temporal(TemporalType.DATE)
+    Date date;
+
+
     public Expense() {
     }
 
@@ -28,6 +33,8 @@ public class Expense {
         this.title = title;
         this.amount = amount;
         this.category = category;
+        this.date = new Date();
+
     }
 
 
@@ -58,4 +65,13 @@ public class Expense {
     public String getCategoryValue(CategoryType category){
         return this.category.getValue();
     }
+
+    public Date getDate(){
+        return date;
+    }
+
+    public void setDate(Date date){
+        this.date = date;
+    }
+
 }
