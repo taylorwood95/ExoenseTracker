@@ -5,6 +5,7 @@ const ExpenseDetail = ({expense}) => {
     <div>Expense Detail
 
         <li>{expense.title}</li>
+        {console.log(expense.title)}
         <p>{expense.amount}</p>
         <p>{expense.category}</p>
     </div>
