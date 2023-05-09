@@ -1,6 +1,10 @@
 package com.expenseTracker.ExpenseTracker.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 @Entity
@@ -17,12 +21,19 @@ public class Account {
     @Column(name = "Amount")
     private double amount;
 
-    public Account(){}
+    @ManyToOne
+    @JsonIgnoreProperties({"accounts"})
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Account(String name, double amount){
+    public Account(String name, double amount, User user){
         this.name = name;
         this.amount = amount;
+        this.user = user;
+
     }
+
+    public Account(){}
 
     public String getName() {
         return name;
@@ -40,4 +51,19 @@ public class Account {
         this.amount = amount;
     }
 
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
