@@ -24,18 +24,24 @@ public class Expense {
     private CategoryType category;
 
     @ManyToOne
-    @JoinColumn(name = "account_id", nullable = true)
-    @JsonIgnoreProperties({"expenses"})
-    private Account account;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Expense() {
     }
 
-    public Expense(String title, double amount, CategoryType category, Account account){
+    public Expense(String title, double amount, CategoryType category){
         this.title = title;
         this.amount = amount;
         this.category = category;
-        this.account = account;
     }
 
 
@@ -65,13 +71,5 @@ public class Expense {
 
     public String getCategoryValue(CategoryType category){
         return this.category.getValue();
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
     }
 }

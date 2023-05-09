@@ -31,7 +31,7 @@ class ExpenseTrackerApplicationTests {
 	@Test
 	public void canGetExpenseTitle() {
 		Account account1 = new Account("Everyday", 500);
-		Expense expense1 = new Expense("Food", 12.0, CategoryType.EATING_OUT, account1);
+		Expense expense1 = new Expense("Food", 12.0, CategoryType.EATING_OUT);
 		assertEquals("Food", expense1.getTitle());
 
 	}

@@ -21,16 +21,23 @@ public class Account {
     @Column(name = "Amount")
     private double amount;
 
-    @JsonIgnoreProperties({"account"})
-    @OneToMany(mappedBy = "account")
-    private List<Expense> expenses;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Account(){}
 
     public Account(String name, double amount){
         this.name = name;
         this.amount = amount;
-        this.expenses =  new ArrayList<>();
 
     }
 
@@ -48,14 +55,6 @@ public class Account {
 
     public void setAmount(double amount) {
         this.amount = amount;
-    }
-
-    public List<Expense> getExpenses() {
-        return expenses;
-    }
-
-    public void setExpenses(List<Expense> expenses) {
-        this.expenses = expenses;
     }
 
     public Long getId(){
