@@ -1,8 +1,9 @@
 package com.expenseTracker.ExpenseTracker.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "expenses")
@@ -22,19 +23,19 @@ public class Expense {
     @Enumerated(value = EnumType.STRING)
     private CategoryType category;
 
-    @Temporal(TemporalType.DATE)
-    Date date;
-
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = true)
+    @JsonIgnoreProperties({"expenses"})
+    private Account account;
 
     public Expense() {
     }
 
-    public Expense(String title, double amount, CategoryType category){
+    public Expense(String title, double amount, CategoryType category, Account account){
         this.title = title;
         this.amount = amount;
         this.category = category;
-        this.date = new Date();
-
+        this.account = account;
     }
 
 
@@ -66,12 +67,11 @@ public class Expense {
         return this.category.getValue();
     }
 
-    public Date getDate(){
-        return date;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setDate(Date date){
-        this.date = date;
+    public void setAccount(Account account) {
+        this.account = account;
     }
-
 }
