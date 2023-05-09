@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class UserController {
 
     @Autowired
@@ -18,7 +19,7 @@ public class UserController {
 
 
     @GetMapping(value = "/users")
-    public ResponseEntity<List<User>> getAllExpenses(){
+    public ResponseEntity<List<User>> getAllUsers(){
         return new ResponseEntity<>(userRepository.findAll(), HttpStatus.ACCEPTED);
     }
 

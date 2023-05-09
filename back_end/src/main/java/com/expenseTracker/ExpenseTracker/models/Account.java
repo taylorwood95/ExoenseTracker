@@ -22,24 +22,18 @@ public class Account {
     private double amount;
 
     @ManyToOne
+    @JsonIgnoreProperties({"accounts"})
     @JoinColumn(name = "user_id")
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
+    public Account(String name, double amount, User user){
+        this.name = name;
+        this.amount = amount;
         this.user = user;
+
     }
 
     public Account(){}
-
-    public Account(String name, double amount){
-        this.name = name;
-        this.amount = amount;
-
-    }
 
     public String getName() {
         return name;
@@ -63,5 +57,13 @@ public class Account {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
