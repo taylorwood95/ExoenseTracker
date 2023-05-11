@@ -3,6 +3,7 @@ import ExpenseDetail from './ExpenseDetail'
 
 const ExpenseList = ({expenses}) => {
 
+
     const expenseNodes = expenses.map((expense, index) => {
       return <ExpenseDetail key={index} expense={expense}/>
     })
