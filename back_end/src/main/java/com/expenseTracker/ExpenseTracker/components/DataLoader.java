@@ -36,8 +36,11 @@ public class DataLoader implements ApplicationRunner {
         User user1 = new User("Taylor");
         userRepository.save(user1);
 
-        Account account1 = new Account("Everyday Accout", 300,user1);
+        Account account1 = new Account("Everyday Account", 300,user1);
         accountRepository.save(account1);
+
+        Account account2 = new Account("Savings", 3000, user1);
+        accountRepository.save(account2);
 
         Expense expense1 = new Expense("Netflix", 15, CategoryType.SUBSCRIPTIONS, user1);
         expenseRepository.save(expense1);
