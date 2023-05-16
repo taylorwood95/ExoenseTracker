@@ -37,7 +37,7 @@ const MainContainer = () => {
             <Route path="/" element={<HomeContainer expenses={expenses}/>}/>
             <Route path="/addexpense" element={<AddExpenseContainer expenses={expenses}/>}/>
             <Route path="/expenselist" element={<ExpenseListContainer expenses={expenses}/>}/>
-            <Route path="/expensecharts" element={<ExpenseChartContainer/>}/>
+            <Route path="/expensecharts" element={<ExpenseChartContainer expenses={expenses}/>}/>
         </Routes>
         </Router>
     </div>
