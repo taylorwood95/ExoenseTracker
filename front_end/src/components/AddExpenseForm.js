@@ -16,7 +16,9 @@ const AddExpenseForm = ({createExpense, expenses}) => {
         createExpense({
             title: title,
             amount: amount,
-            category: category
+            category: category,
+            user : expenses[0].user
+
         })
         setTitle('');
         setAmount('');
@@ -33,8 +35,6 @@ const AddExpenseForm = ({createExpense, expenses}) => {
         return <option key={index} value={index}>{category}</option>
       
     })
-
-
 
     
   return (

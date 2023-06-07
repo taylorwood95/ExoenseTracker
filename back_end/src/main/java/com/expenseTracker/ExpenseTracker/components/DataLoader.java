@@ -45,6 +45,8 @@ public class DataLoader implements ApplicationRunner {
         Expense expense1 = new Expense("Netflix", 15, CategoryType.SUBSCRIPTIONS, user1);
         expenseRepository.save(expense1);
 
+
+
     }
 
 
