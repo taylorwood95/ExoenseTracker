@@ -15,9 +15,6 @@ const MainContainer = () => {
         fetch(url)
         .then(results => results.json())
         .then(data => setExpenses(data))
-        
-
-
     
     }
 
@@ -34,7 +31,7 @@ const MainContainer = () => {
         <Router>
         <NavBar/>
         <Routes>
-            <Route path="/" element={<HomeContainer expenses={expenses}/>}/>
+            <Route path="/" element={<HomeContainer/>}/>
             <Route path="/addexpense" element={<AddExpenseContainer expenses={expenses}/>}/>
             <Route path="/expenselist" element={<ExpenseListContainer expenses={expenses}/>}/>
             <Route path="/expensecharts" element={<ExpenseChartContainer expenses={expenses}/>}/>
