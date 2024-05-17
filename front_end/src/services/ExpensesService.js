@@ -7,6 +7,7 @@ const ExpensesService =  {
   },
 
   addExpense(expense) {
+    console.log(expense)
     return fetch(baseURL, {
       method: 'POST',
       body: JSON.stringify(expense),
