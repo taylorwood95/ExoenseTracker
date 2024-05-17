@@ -4,7 +4,7 @@ import ExpensesService from '../services/ExpensesService';
 
 const AddExpenseContainer = ({expenses}) => {
 
-  const [expenseData, setExpenseData] = useState([]);
+  const [expense, setExpenseData] = useState([]);
 
   const createExpense = newExpense => {
     ExpensesService.addExpense(newExpense)
