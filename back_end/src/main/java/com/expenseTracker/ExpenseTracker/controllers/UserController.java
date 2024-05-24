@@ -2,7 +2,6 @@ package com.expenseTracker.ExpenseTracker.controllers;
 
 import com.expenseTracker.ExpenseTracker.models.Expense;
 import com.expenseTracker.ExpenseTracker.models.User;
-import com.expenseTracker.ExpenseTracker.repositories.ExpenseRepository;
 import com.expenseTracker.ExpenseTracker.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class UserController {
 

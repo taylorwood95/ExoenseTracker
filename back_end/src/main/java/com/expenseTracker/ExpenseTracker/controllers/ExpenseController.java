@@ -11,7 +11,6 @@ import org.springframework.web.servlet.function.HandlerFilterFunction;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ExpenseController {
 
