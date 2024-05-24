@@ -1,4 +1,4 @@
-const baseURL = '/api/expenses'
+const baseURL = 'http://localhost:8080/api/expenses'
 
 const ExpensesService =  {
   getExpenses() {

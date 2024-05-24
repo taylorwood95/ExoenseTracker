@@ -1,12 +1,13 @@
-version: "3.8"
-
 services:
 
   front-end:
     container_name: expense-tracker-frontend
-    image: expense-tracker:frontend
+    image: react-nginx-app:latest
+
     ports: 
-      - '3000:3000'
+      - '3000:80'
+    links: 
+      - back_end
   psql-db:
     image: postgres
     container_name: psql-db
@@ -30,3 +31,4 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     depends_on:
       - psql-db
+    
