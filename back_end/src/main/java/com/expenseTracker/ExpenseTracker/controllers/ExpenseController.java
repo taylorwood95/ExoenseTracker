@@ -27,6 +27,7 @@ public class ExpenseController {
         return new ResponseEntity<>(expenseRepository.findById(id), HttpStatus.ACCEPTED);
     }
 
+    // @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/expenses")
     public ResponseEntity<Expense> createExpense(@RequestBody Expense expense) {
         expenseRepository.save(expense);
